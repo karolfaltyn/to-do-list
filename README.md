@@ -1,1 +1,1 @@
-# js-todo-list
+# JavaScript To-Do List
