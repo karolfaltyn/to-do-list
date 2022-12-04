@@ -2,16 +2,20 @@
   /* Custom properties (variables) */
 
   --clr-personal: hsl(325, 80%, 58%);
-  --clr-personal-glow: hsl(325, 80%, 58%, 0.75);
+  --clr-personal-glow: 0px 0px 4px hsl(325, 80%, 58%, 0.75);
 
-  --clr-business: hsl(216, 14%, 58%);
-  --clr-business-glow: hsl(216, 84%, 58%, 0.75);
+  --clr-business: hsl(216, 84%, 58%);
+  --clr-business-glow: 0px 0px 4px hsl(216, 84%, 58%, 0.75);
+
+  --clr-shadow: 0 1px 3px hsl(0, 0%, 0%, 0.001);
 
   --clr-primary: hsl(325, 80%, 58%);
   --clr-danger: hsl(1, 100%, 67%);
 
-  --clr-neutral-100: hsl(0, 0%, 0%);
-  --clr-neutral-900: hsl(0, 0%, 100%);
+  --clr-neutral-000: hsl(0, 0%, 0%);
+  --clr-neutral-050: hsl(0, 0%, 50%);
+  --clr-neutral-090: hsl(0, 0%, 90%);
+  --clr-neutral-100: hsl(0, 0%, 100%);
 
   --ff-primary: "montserrat", sans-serif;
 
@@ -55,6 +59,7 @@
   margin: 0;
   padding: 0;
   font: inherit;
+  font-family: var(--ff-body);
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
@@ -110,6 +115,12 @@ svg {
 
 /* General styling */
 
+/* main {
+  width: min(var(--max-width), 100% - (var(--padding) * 2));
+  margin-inline: auto;
+  font-family: var(--ff-primary);
+} */
+
 input:not([type="radio"]):not([type="checkbox"]),
 button {
   appearance: none;
@@ -120,14 +131,202 @@ button {
 }
 
 body {
-  background-color: var(--clr-neutral-900);
-  color: var(--clr-neutral-100);
+  background-color: var(--clr-neutral-090);
+  color: var(--clr-neutral-000);
 }
 
-main {
-  width: min(var(--max-width), 100% - (var(--padding) * 2));
-  margin-inline: auto;
-  font-family: var(--ff-primary);
+section {
+  margin: 2rem 1.5em 2rem 1.5rem;
+}
+
+h3 {
+  color: var(--clr-neutral-000);
+  font-size: 1rem;
+  font-weight: var(--fw-regular);
+  margin-bottom: 0.5rem;
+}
+
+h4 {
+  color: var(--clr-neutral-050);
+  font-size: 0.875rem;
+  font-weight: var(--fw-semi-bold);
+  margin-bottom: 0.5rem;
+}
+
+.greeting .title {
+  display: flex;
+}
+
+.greeting .title input {
+  margin-left: 0.5rem;
+  flex: 1 1 0%;
+  min-width: 0;
+}
+
+.greeting .title,
+.greeting .title input {
+  color: var(--clr-neutral-000);
+  font-size: 1.5rem;
+  font-weight: var(--fw-semi-bold);
+}
+
+.create-todo input[type="text"] {
+  display: block;
+  width: 100%;
+  font-size: 1.125rem;
+  padding: 1rem 1.5rem;
+  color: var(--clr-neutral-000);
+  background-color: var(--clr-neutral-100);
+  border-radius: 0.5rem;
+  box-shadow: var(--clr-shadow);
+  margin-bottom: 1.5rem;
+}
+
+.create-todo .options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.create-todo .options label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background-color: var(--clr-neutral-100);
+  border-radius: 0.5rem;
+  box-shadow: var(--clr-shadow);
+  cursor: pointer;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  display: none;
+}
+
+.bubble {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--clr-business);
+  box-shadow: var(--clr-business-glow);
+}
+
+.bubble.personal {
+  border-color: var(--clr-personal);
+  box-shadow: var(--clr-personal-glow);
+}
+
+.bubble::after {
+  content: "";
+  display: block;
+  opacity: 0;
+  width: 0px;
+  height: 0px;
+  background-color: var(--clr-business);
+  box-shadow: var(--clr-business-glow);
+  border-radius: 50%;
+  transition: 0.2s ease-in-out;
+}
+
+.bubble.personal::after {
+  background-color: var(--clr-personal);
+  box-shadow: var(--clr-personal-glow);
+}
+
+input:checked ~ .bubble::after {
+  width: 10px;
+  height: 10px;
+  opacity: 1;
+}
+
+.create-todo .options label div {
+  color: var(--clr-neutral-000);
+  font-size: 1.125rem;
+  margin-top: 1rem;
+}
+
+.create-todo input[type="submit"] {
+  display: block;
+  width: 100%;
+  font-size: 1.125rem;
+  padding: 1rem 1.5rem;
+  color: var(--clr-neutral-100);
+  background-color: var(--clr-primary);
+  border-radius: 0.5rem;
+  box-shadow: var(--clr-personal-glow);
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.create-todo input[type="submit"]:hover {
+  opacity: 0.75;
+}
+
+.todo-list .list {
+  margin: 1rem 0;
+}
+
+.todo-list .todo-item {
+  display: flex;
+  align-items: center;
+  background-color: var(--clr-neutral-100);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--clr-shadow);
+  margin-bottom: 1rem;
+}
+
+.todo-item label {
+  display: block;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.todo-item .todo-content {
+  flex: 1 1 0%;
+}
+
+.todo-item .todo-content input {
+  color: var(--clr-neutral-000);
+  font-size: 1.125rem;
+}
+
+.todo-item .actions {
+  display: flex;
+  align-items: center;
+}
+
+.todo-item .actions button {
+  display: block;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  color: var(--clr-neutral-100);
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.todo-item .actions button:hover {
+  opacity: 0.75;
+}
+
+.todo-item .actions .edit {
+  margin-right: 0.5rem;
+  background-color: var(--clr-primary);
+}
+
+.todo-item .actions .delete {
+  background-color: var(--clr-danger);
+}
+
+.todo-item.done .todo-content input {
+  text-decoration: line-through;
+  color: var(--clr-neutral-050);
 }
 
 /* npx live-server . TODO: FIXME:*/
