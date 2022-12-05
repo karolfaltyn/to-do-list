@@ -28,10 +28,10 @@ window.addEventListener('load', () => {
         // Reset the form
         e.target.reset();
 
-        DisplayTodos()
+        DisplayTodos();
     })
 
-    DisplayTodos()
+    DisplayTodos();
 })
 
 function DisplayTodos() {
@@ -91,7 +91,7 @@ function DisplayTodos() {
                 todoItem.classList.remove('done');
             }
 
-            DisplayTodos()
+            DisplayTodos();
 
         })
 
@@ -103,7 +103,7 @@ function DisplayTodos() {
                 input.setAttribute('readonly', true);
                 todo.content = e.target.value;
                 localStorage.setItem('todos', JSON.stringify(todos));
-                DisplayTodos()
+                DisplayTodos();
 
             })
         })
@@ -111,7 +111,7 @@ function DisplayTodos() {
         deleteButton.addEventListener('click', (e) => {
             todos = todos.filter(t => t != todo);
             localStorage.setItem('todos', JSON.stringify(todos));
-            DisplayTodos()
+            DisplayTodos();
         })
 
     })
