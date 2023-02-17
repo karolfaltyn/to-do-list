@@ -1,15 +1,15 @@
 :root {
   /* Custom properties (variables) */
 
-  --clr-personal: hsl(325, 80%, 58%);
-  --clr-personal-glow: 0px 0px 4px hsl(325, 80%, 58%, 0.75);
+  --clr-personal: #ffc601;
+  --clr-personal-glow: 0px 0px 4px hsl(47, 100%, 50%, 0.75);
 
-  --clr-business: hsl(216, 84%, 58%);
-  --clr-business-glow: 0px 0px 4px hsl(216, 84%, 58%, 0.75);
+  --clr-business: #bc0e4c;
+  --clr-business-glow: 0px 0px 4px hsl(339, 86%, 40%, 0.75);
 
   --clr-shadow: 0 1px 3px hsl(0, 0%, 0%, 0.001);
 
-  --clr-primary: hsl(325, 80%, 58%);
+  --clr-primary: #354f60;
   --clr-danger: hsl(1, 100%, 67%);
 
   --clr-neutral-000: hsl(0, 0%, 0%);
@@ -39,7 +39,7 @@
   --fs-secondary-heading: var(--fs-700);
   --fs-primary-heading: var(--fs-900);
 
-  --max-width: 1600px;
+  --max-width: 1400px;
   --padding: 1rem;
 }
 
@@ -115,11 +115,11 @@ svg {
 
 /* General styling */
 
-/* main {
+main {
   width: min(var(--max-width), 100% - (var(--padding) * 2));
   margin-inline: auto;
   font-family: var(--ff-primary);
-} */
+}
 
 input:not([type="radio"]):not([type="checkbox"]),
 button {
@@ -258,7 +258,6 @@ input:checked ~ .bubble::after {
   color: var(--clr-neutral-100);
   background-color: var(--clr-primary);
   border-radius: 0.5rem;
-  box-shadow: var(--clr-personal-glow);
   cursor: pointer;
   transition: 0.2s ease-in-out;
 }
