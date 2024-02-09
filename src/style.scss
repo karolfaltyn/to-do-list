@@ -263,23 +263,6 @@ section {
     box-shadow: $clr-personal-glow;
   }
 
-  .bubble::after {
-    content: "";
-    display: block;
-    opacity: 0;
-    width: 0px;
-    height: 0px;
-    background-color: $clr-business;
-    box-shadow: $clr-business-glow;
-    border-radius: 50%;
-    transition: 0.2s ease-in-out;
-  }
-
-  .bubble.personal::after {
-    background-color: $clr-personal;
-    box-shadow: $clr-personal-glow;
-  }
-
   label {
     display: block;
     margin-right: 1rem;
@@ -321,25 +304,33 @@ section {
   }
 }
 
-.todo-item.done .todo-content input {
-  text-decoration: line-through;
-}
+.todo-item.done {
+  .todo-content input {
+    text-decoration: line-through;
+  }
 
-.todo-item.done .bubble::after {
-  content: "";
-  display: block;
-  opacity: 0;
-  width: 0px;
-  height: 0px;
-  background-color: $clr-business;
-  box-shadow: $clr-business-glow;
-  border-radius: 50%;
-  transition: 0.2s ease-in-out;
-}
+  input:checked ~ .bubble::after {
+    width: 10px;
+    height: 10px;
+    opacity: 1;
+  }
 
-.todo-item.done.bubble.personal::after {
-  background-color: $clr-personal;
-  box-shadow: $clr-personal-glow;
+  .bubble::after {
+    content: "";
+    display: block;
+    opacity: 0;
+    width: 0px;
+    height: 0px;
+    background-color: $clr-business;
+    box-shadow: $clr-business-glow;
+    border-radius: 50%;
+    transition: 0.2s ease-in-out;
+  }
+
+  .bubble.personal::after {
+    background-color: $clr-personal;
+    box-shadow: $clr-personal-glow;
+  }
 }
 
 @media (max-width: 25em) {

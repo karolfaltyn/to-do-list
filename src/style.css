@@ -177,19 +177,6 @@ section {
   .todo-item .bubble.personal {
     border-color: #ffc601;
     box-shadow: 0px 0px 4px #ffc800bf; }
-  .todo-item .bubble::after {
-    content: "";
-    display: block;
-    opacity: 0;
-    width: 0px;
-    height: 0px;
-    background-color: #bc0e4c;
-    box-shadow: 0px 0px 4px #be0e4cbf;
-    border-radius: 50%;
-    transition: 0.2s ease-in-out; }
-  .todo-item .bubble.personal::after {
-    background-color: #ffc601;
-    box-shadow: 0px 0px 4px #ffc800bf; }
   .todo-item label {
     display: block;
     margin-right: 1rem;
@@ -218,6 +205,11 @@ section {
 .todo-item.done .todo-content input {
   text-decoration: line-through; }
 
+.todo-item.done input:checked ~ .bubble::after {
+  width: 10px;
+  height: 10px;
+  opacity: 1; }
+
 .todo-item.done .bubble::after {
   content: "";
   display: block;
@@ -229,7 +221,7 @@ section {
   border-radius: 50%;
   transition: 0.2s ease-in-out; }
 
-.todo-item.done.bubble.personal::after {
+.todo-item.done .bubble.personal::after {
   background-color: #ffc601;
   box-shadow: 0px 0px 4px #ffc800bf; }
 
