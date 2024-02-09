@@ -1,0 +1,243 @@
+/* Box sizing rules, remove default margin */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font: inherit; }
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none; }
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth; }
+
+html,
+body {
+  height: 100%; }
+
+/* Set core body defaults */
+body {
+  text-rendering: optimizeSpeed;
+  line-height: 1.5; }
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto; }
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block; }
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important; } }
+
+input:not([type="radio"]):not([type="checkbox"]),
+button {
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none; }
+
+input[type="radio"],
+input[type="checkbox"] {
+  display: none; }
+
+.app {
+  margin: 0 auto;
+  max-width: 800px;
+  font-family: "montserrat", sans-serif;
+  color: #000000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 2rem; }
+
+section {
+  margin: 1rem; }
+
+.greeting h2 {
+  font-family: "montserrat", sans-serif;
+  font-size: 1.625rem; }
+
+.greeting input {
+  max-width: 15ch; }
+
+.create-todo h3 {
+  color: #8a8a8a;
+  font-size: 1rem; }
+
+.create-todo h4 {
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem; }
+
+.create-todo input[type="text"] {
+  display: block;
+  width: 100%;
+  font-size: 1.125rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px #8a8a8a;
+  margin-bottom: 1rem; }
+
+.create-todo input[type="submit"] {
+  display: block;
+  width: 100%;
+  font-size: 1.125rem;
+  background-color: #e9e9e9;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  box-shadow: 0 1px 3px #8a8a8a; }
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem; }
+  .options label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background-color: #e9e9e9;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px #8a8a8a;
+    cursor: pointer; }
+  .options label div {
+    margin-top: 0.5rem; }
+  .options .bubble {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #bc0e4c;
+    box-shadow: 0px 0px 4px #be0e4cbf;
+    background-color: #e9e9e9; }
+  .options .bubble.personal {
+    border-color: #ffc601;
+    box-shadow: 0px 0px 4px #ffc800bf; }
+  .options .bubble::after {
+    content: "";
+    display: block;
+    opacity: 0;
+    width: 0px;
+    height: 0px;
+    background-color: #bc0e4c;
+    box-shadow: 0px 0px 4px #be0e4cbf;
+    border-radius: 50%;
+    transition: 0.2s ease-in-out; }
+  .options .bubble.personal::after {
+    background-color: #ffc601;
+    box-shadow: 0px 0px 4px #ffc800bf; }
+  .options input:checked ~ .bubble::after {
+    width: 10px;
+    height: 10px;
+    opacity: 1; }
+
+.todo-list h3 {
+  font-size: 1.125rem; }
+
+.todo-list .list {
+  margin: 1rem 0; }
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  background-color: #e9e9e9;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px #8a8a8a;
+  margin-bottom: 1rem; }
+  .todo-item .bubble {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #bc0e4c;
+    box-shadow: 0px 0px 4px #be0e4cbf; }
+  .todo-item .bubble.personal {
+    border-color: #ffc601;
+    box-shadow: 0px 0px 4px #ffc800bf; }
+  .todo-item label {
+    display: block;
+    margin-right: 1rem;
+    cursor: pointer; }
+  .todo-item .todo-content {
+    flex: 1 1 0%; }
+  .todo-item .todo-content input {
+    font-size: 1rem; }
+  .todo-item .actions {
+    display: flex;
+    align-items: center; }
+  .todo-item .actions button {
+    display: block;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: 0.2s ease-in-out; }
+  .todo-item .actions button:hover {
+    opacity: 0.75; }
+  .todo-item .actions .edit {
+    margin-right: 0.5rem;
+    background-color: #d1d1d1;
+    box-shadow: 0 1px 3px #8a8a8a; }
+  .todo-item .delete {
+    background-color: #ff5a57;
+    box-shadow: 0 1px 3px #8a8a8a; }
+
+.todo-item.done .todo-content input {
+  text-decoration: line-through; }
+
+.todo-item.done input:checked ~ .bubble::after {
+  width: 10px;
+  height: 10px;
+  opacity: 1; }
+
+.todo-item.done .bubble::after {
+  content: "";
+  display: block;
+  opacity: 0;
+  width: 0px;
+  height: 0px;
+  background-color: #bc0e4c;
+  box-shadow: 0px 0px 4px #be0e4cbf;
+  border-radius: 50%;
+  transition: 0.2s ease-in-out; }
+
+.todo-item.done .bubble.personal::after {
+  background-color: #ffc601;
+  box-shadow: 0px 0px 4px #ffc800bf; }
+
+@media (max-width: 25em) {
+  .options {
+    display: flex;
+    flex-direction: column; } }
+
+@media (max-width: 34.375em) {
+  .todo-item {
+    flex-direction: column; }
+  input {
+    margin: 1rem 0; } }
