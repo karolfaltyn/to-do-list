@@ -1,0 +1,359 @@
+$clr-personal: #ffc601;
+$clr-personal-glow: 0px 0px 4px #ffc800bf;
+
+$clr-business: #bc0e4c;
+$clr-business-glow: 0px 0px 4px #be0e4cbf;
+
+$clr-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.001);
+
+$clr-danger: #ff5a57;
+
+$clr-neutral-100: #000000;
+$clr-neutral-500: #8a8a8a;
+$clr-neutral-600: #d1d1d1;
+$clr-neutral-700: #e9e9e9;
+
+$ff-primary: "montserrat", sans-serif;
+
+$ff-body: $ff-primary;
+$ff-heading: $ff-primary;
+
+$fs-nav: 1rem;
+$fs-nav-logo: 1.375rem;
+$fs-heading: 3.438rem;
+$fs-medium-heading: 1.625rem;
+$fs-small-heading: 1rem;
+$fs-paragraph: 1.125rem;
+$fs-large-paragraph: 1.625rem;
+
+@media (max-width: 62.5em) {
+  $fs-heading: 3rem;
+}
+
+/* Box sizing rules, remove default margin */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+/* Set core body defaults */
+body {
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+//   general styling
+
+input:not([type="radio"]):not([type="checkbox"]),
+button {
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  display: none;
+}
+
+.app {
+  margin: 0 auto;
+  max-width: 800px;
+  font-family: $ff-body;
+  color: $clr-neutral-100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+section {
+  margin: 1rem;
+}
+
+.greeting {
+  h2 {
+    font-family: $ff-heading;
+    font-size: $fs-medium-heading;
+  }
+
+  input {
+    max-width: 15ch;
+  }
+}
+
+.create-todo {
+  h3 {
+    color: $clr-neutral-500;
+    font-size: $fs-small-heading;
+  }
+
+  h4 {
+    font-size: $fs-paragraph;
+    margin-bottom: 0.5rem;
+  }
+
+  input[type="text"] {
+    display: block;
+    width: 100%;
+    font-size: $fs-paragraph;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    //   box-shadow: 0 1px 3px $clr-shadow;
+    margin-bottom: 1rem;
+  }
+
+  input[type="submit"] {
+    display: block;
+    width: 100%;
+    font-size: $fs-paragraph;
+    background-color: $clr-neutral-700;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+  }
+}
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background-color: $clr-neutral-700;
+    border-radius: 0.5rem;
+    // box-shadow: $clr-shadow;
+    cursor: pointer;
+  }
+
+  label div {
+    margin-top: 0.5rem;
+  }
+
+  .bubble {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid $clr-business;
+    box-shadow: $clr-business-glow;
+    background-color: $clr-neutral-700;
+  }
+
+  .bubble.personal {
+    border-color: $clr-personal;
+    box-shadow: $clr-personal-glow;
+  }
+
+  .bubble::after {
+    content: "";
+    display: block;
+    opacity: 0;
+    width: 0px;
+    height: 0px;
+    background-color: $clr-business;
+    box-shadow: $clr-business-glow;
+    border-radius: 50%;
+    transition: 0.2s ease-in-out;
+  }
+
+  .bubble.personal::after {
+    background-color: $clr-personal;
+    box-shadow: $clr-personal-glow;
+  }
+
+  input:checked ~ .bubble::after {
+    width: 10px;
+    height: 10px;
+    opacity: 1;
+  }
+}
+
+.todo-list {
+  h3 {
+    font-size: $fs-paragraph;
+  }
+
+  .list {
+    margin: 1rem 0;
+  }
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  background-color: $clr-neutral-700;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  // box-shadow: $clr-shadow;
+  margin-bottom: 1rem;
+
+  .bubble {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid $clr-business;
+    box-shadow: $clr-business-glow;
+  }
+
+  .bubble.personal {
+    border-color: $clr-personal;
+    box-shadow: $clr-personal-glow;
+  }
+
+  .bubble::after {
+    content: "";
+    display: block;
+    opacity: 0;
+    width: 0px;
+    height: 0px;
+    background-color: $clr-business;
+    box-shadow: $clr-business-glow;
+    border-radius: 50%;
+    transition: 0.2s ease-in-out;
+  }
+
+  .bubble.personal::after {
+    background-color: $clr-personal;
+    box-shadow: $clr-personal-glow;
+  }
+
+  label {
+    display: block;
+    margin-right: 1rem;
+    cursor: pointer;
+  }
+
+  .todo-content {
+    flex: 1 1 0%;
+  }
+
+  .todo-content input {
+    font-size: $fs-nav;
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+  }
+
+  .actions button {
+    display: block;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+  }
+
+  .actions button:hover {
+    opacity: 0.75;
+  }
+
+  .actions .edit {
+    margin-right: 0.5rem;
+    background-color: $clr-neutral-600;
+  }
+
+  .delete {
+    background-color: $clr-danger;
+  }
+}
+
+.todo-item.done .todo-content input {
+  text-decoration: line-through;
+}
+
+.todo-item.done .bubble::after {
+  content: "";
+  display: block;
+  opacity: 0;
+  width: 0px;
+  height: 0px;
+  background-color: $clr-business;
+  box-shadow: $clr-business-glow;
+  border-radius: 50%;
+  transition: 0.2s ease-in-out;
+}
+
+.todo-item.done.bubble.personal::after {
+  background-color: $clr-personal;
+  box-shadow: $clr-personal-glow;
+}
+
+@media (max-width: 25em) {
+  .options {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 34.375em) {
+  .todo-item {
+    flex-direction: column;
+  }
+  input {
+    margin: 1rem 0;
+  }
+}
