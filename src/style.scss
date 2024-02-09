@@ -4,7 +4,7 @@ $clr-personal-glow: 0px 0px 4px #ffc800bf;
 $clr-business: #bc0e4c;
 $clr-business-glow: 0px 0px 4px #be0e4cbf;
 
-$clr-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.001);
+$clr-shadow: 0 1px 3px #8a8a8a;
 
 $clr-danger: #ff5a57;
 
@@ -149,7 +149,7 @@ section {
     font-size: $fs-paragraph;
     padding: 1rem;
     border-radius: 0.5rem;
-    //   box-shadow: 0 1px 3px $clr-shadow;
+    box-shadow: $clr-shadow;
     margin-bottom: 1rem;
   }
 
@@ -162,6 +162,7 @@ section {
     border-radius: 0.5rem;
     cursor: pointer;
     transition: 0.2s ease-in-out;
+    box-shadow: $clr-shadow;
   }
 }
 
@@ -179,7 +180,7 @@ section {
     padding: 1.5rem;
     background-color: $clr-neutral-700;
     border-radius: 0.5rem;
-    // box-shadow: $clr-shadow;
+    box-shadow: $clr-shadow;
     cursor: pointer;
   }
 
@@ -244,7 +245,7 @@ section {
   background-color: $clr-neutral-700;
   padding: 1rem;
   border-radius: 0.5rem;
-  // box-shadow: $clr-shadow;
+  box-shadow: $clr-shadow;
   margin-bottom: 1rem;
 
   .bubble {
@@ -297,10 +298,12 @@ section {
   .actions .edit {
     margin-right: 0.5rem;
     background-color: $clr-neutral-600;
+    box-shadow: $clr-shadow;
   }
 
   .delete {
     background-color: $clr-danger;
+    box-shadow: $clr-shadow;
   }
 }
 
