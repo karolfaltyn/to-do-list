@@ -49,6 +49,12 @@ To run the project locally, follow these steps:
 
 5. Open the `index.html` file in your preferred web browser.
 
+## Technologies Used
+
+- HTML
+- Sass
+- JavaScript
+
 ## License
 
 This project is licensed under the MIT License.
