@@ -19,7 +19,7 @@ Project is written in Sass, but for the purpose of live view on GitHub Pages I a
 
 ## Getting Started
 
-To view the website online, visit [https://karolfaltyn.github.io/todo-list/](https://karolfaltyn.github.io/todo-list/).
+To view the website online, visit [https://karolfaltyn.github.io/to-do-list/](https://karolfaltyn.github.io/to-do-list/).
 
 To run the project locally, follow these steps:
 
