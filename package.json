@@ -1,13 +1,9 @@
 {
-  "homepage": "https://karolfaltyn.github.io/to-do-list",
   "scripts": {
     "watch:scss": "node-sass -w src/style.scss src/style.css",
-    "compile:scss": "node-sass ./src/style.scss ./src/style.css",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "compile:scss": "node-sass ./src/style.scss ./src/style.css"
   },
   "dependencies": {
-    "gh-pages": "^6.1.1",
     "node-sass": "^9.0.0"
   }
 }
