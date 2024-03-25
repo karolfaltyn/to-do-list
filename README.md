@@ -1,4 +1,5 @@
 
+
 # To-Do List
 
 ## Overview
@@ -47,7 +48,13 @@ To run the project locally, follow these steps:
    npm run compile:scss
    ```
 
-5. Open the `index.html` file in your preferred web browser.
+5. Start the development server:
+
+   ```bash
+   npm start
+   ```
+   
+6. Open your browser and visit  [http://localhost:3000](http://localhost:3000/)  to view the application.
 
 ## Technologies Used
 
